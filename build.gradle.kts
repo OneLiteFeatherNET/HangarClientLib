@@ -29,7 +29,7 @@ publishing {
     publications {
         create<MavenPublication>("GithubPackages") {
             groupId = "dev.themeinerlp"
-            artifactId = "HangarClient"
+            artifactId = "hangar-client"
             from(components["java"])
         }
     }
