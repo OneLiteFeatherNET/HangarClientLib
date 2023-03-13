@@ -28,6 +28,8 @@ openApiGenerate {
 publishing {
     publications {
         create<MavenPublication>("GithubPackages") {
+            groupId = "dev.themeinerlp"
+            artifactId = "HangarClient"
             from(components["java"])
         }
     }
