@@ -15,8 +15,10 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
-tasks.test {
-    useJUnitPlatform()
+tasks {
+    publish {
+        dependsOn("openApiGenerate")
+    }
 }
 
 kotlin {
