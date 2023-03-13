@@ -24,12 +24,21 @@ openApiGenerate {
     apiPackage.set("dev.themeinerlp.hangar.api")
     invokerPackage.set("dev.themeinerlp.hangar.invoker")
     modelPackage.set("dev.themeinerlp.hangar.model")
+    outputDir.set("$buildDir/hangar")
+}
+sourceSets {
+    main {
+        java {
+            setSrcDirs(listOf("src/java", "$buildDir/hangar/src/main/java"))
+        }
+    }
 }
 publishing {
     publications {
         create<MavenPublication>("GithubPackages") {
             groupId = "dev.themeinerlp"
             artifactId = "hangar-client"
+            println(components.names.joinToString())
             from(components["java"])
         }
     }
