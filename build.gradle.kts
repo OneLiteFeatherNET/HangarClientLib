@@ -15,12 +15,6 @@ dependencies {
     testImplementation(kotlin("test"))
 }
 
-tasks {
-    publish {
-        dependsOn("openApiGenerate")
-    }
-}
-
 kotlin {
     jvmToolchain(17)
 }
@@ -32,6 +26,11 @@ openApiGenerate {
     modelPackage.set("dev.themeinerlp.hangar.model")
 }
 publishing {
+    publications {
+        create<MavenPublication>("GithubPackages") {
+            from(components["java"])
+        }
+    }
     repositories {
         maven {
             name = "GithubPackages"
